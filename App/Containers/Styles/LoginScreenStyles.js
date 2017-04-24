@@ -9,18 +9,23 @@ export default StyleSheet.create({
   form: {
     backgroundColor: Colors.snow,
     margin: Metrics.baseMargin,
-    borderRadius: 4
+    borderRadius: 10
   },
   row: {
     paddingVertical: Metrics.doubleBaseMargin,
     paddingHorizontal: Metrics.doubleBaseMargin
   },
   rowLabel: {
-    color: Colors.charcoal
+    color: Colors.steelblue
   },
   textInput: {
     height: 40,
-    color: Colors.coal
+    color: Colors.coal,
+    borderWidth: 2,
+    borderColor: Colors.steelblue,
+    padding: 5,
+    borderRadius: 10,
+    marginTop: 8
   },
   textInputReadonly: {
     height: 40,
@@ -29,24 +34,31 @@ export default StyleSheet.create({
   loginRow: {
     paddingBottom: Metrics.doubleBaseMargin,
     paddingHorizontal: Metrics.doubleBaseMargin,
-    flexDirection: 'row'
+    flexDirection: 'column',
+    marginTop: 20
   },
   loginButtonWrapper: {
     flex: 1
   },
   loginButton: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: Colors.charcoal,
-    backgroundColor: Colors.panther,
-    padding: 6
+    borderWidth: 2,
+    borderColor: Colors.steelblue,
+    backgroundColor: Colors.snow,
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10
   },
   loginText: {
     textAlign: 'center',
-    color: Colors.silver
+    color: Colors.steelblue,
+    fontWeight: '700'
   },
   topLogo: {
     alignSelf: 'center',
-    resizeMode: 'contain'
+  },
+  appLogo: {
+    color: 'white',
+    fontSize: 70
   }
 })

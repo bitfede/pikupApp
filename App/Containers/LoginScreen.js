@@ -29,7 +29,7 @@ class LoginScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: 'reactnative@infinite.red',
+      username: 'test@pikup.app',
       password: 'password',
       visibleHeight: Metrics.screenHeight,
       topLogo: { width: Metrics.screenWidth }
@@ -80,7 +80,8 @@ class LoginScreen extends React.Component {
     const { username, password } = this.state
     this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
-    this.props.attemptLogin(username, password)
+    //this.props.attemptLogin(username, password)
+    // NavigationActions TODO
   }
 
   handleChangeUsername = (text) => {
@@ -98,7 +99,7 @@ class LoginScreen extends React.Component {
     const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
-        <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} />
+        <Text style={[Styles.topLogo, Styles.appLogo]}>PIKUP</Text>
         <View style={Styles.form}>
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Username</Text>
