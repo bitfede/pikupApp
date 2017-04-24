@@ -81,7 +81,7 @@ class LoginScreen extends React.Component {
     this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
     //this.props.attemptLogin(username, password)
-    // NavigationActions TODO
+    NavigationActions.HomeScreen()
   }
 
   handleChangeUsername = (text) => {

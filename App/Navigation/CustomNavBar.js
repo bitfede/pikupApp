@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, Image, LayoutAnimation } from 'react-native'
+import { View, Image, LayoutAnimation, Text } from 'react-native'
 import NavItems from './NavItems'
 import styles from './Styles/CustomNavBarStyles'
 import SearchBar from '../Components/SearchBar'
@@ -34,7 +34,7 @@ class CustomNavBar extends React.Component {
       return <SearchBar onSearch={this.props.performSearch} searchTerm={this.props.searchTerm} onCancel={this.cancelSearch} />
     } else {
       return (
-        <Image resizeMode='cover' style={styles.logo} source={Images.clearLogo} />
+        <Text resizeMode='cover' style={styles.logo} source={Images.clearLogo}>PIKUP</Text>
       )
     }
   }

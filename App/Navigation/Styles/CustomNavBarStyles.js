@@ -25,8 +25,9 @@ export default {
   logo: {
     alignSelf: 'center',
     marginTop: Metrics.baseMargin,
-    height: Metrics.icons.large,
-    width: Metrics.icons.large
+    fontSize: 30,
+    color: 'white',
+    fontWeight: '900'
   },
   rightButtons: {
     flex: 1,
