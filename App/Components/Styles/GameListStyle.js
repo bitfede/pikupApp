@@ -16,7 +16,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1
   },
   gameName: {
-    color: 'white',
+    color: 'yellow',
     fontSize: 17,
   },
   location: {

@@ -1,0 +1,33 @@
+{
+  "Games" : [ {
+    "createdby" : "Andy",
+    "location" : "UM Wellness Center: Court 1",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  }, {
+    "createdby" : "Frank",
+    "location" : "UM Wellness Center: Court 3",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  }, {
+    "createdby" : "Joe",
+    "location" : "UM Wellness: upstairs in the middle",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  }, {
+    "createdby" : "Andy",
+    "location" : "UM Wellness Center: Court 1",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  }, {
+    "createdby" : "Andy",
+    "location" : "UM Wellness Center: Court 1",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  }, {
+    "createdby" : "Andy",
+    "location" : "UM Wellness Center: Court 1",
+    "name" : "Andy 2v2",
+    "time" : "11:30AM"
+  } ]
+}

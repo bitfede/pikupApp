@@ -1,5 +1,3 @@
-import dataa from '../Fixtures/data.json'
-
 export default {
   // Functions return fixtures
   getRoot: () => {
@@ -21,13 +19,6 @@ export default {
     return {
       ok: true,
       data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
-    }
-  },
-  getgames: () => {
-    console.debug("helloworld")
-    return {
-      ok: true,
-      data: dataa
     }
   }
 }
