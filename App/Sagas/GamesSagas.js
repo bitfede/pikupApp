@@ -27,3 +27,19 @@ export function * getGames (api, action) {
     yield put(GamesActions.gamesFailure())
   }
 }
+
+export function * postGames (api, action) {
+  const { dataWr } = action
+  // make the call to the api
+
+  const response = yield call(api.postGames, dataWr )
+  console.debug("RESPONSE", response)
+  // success?
+  if (response.ok) {
+    // You might need to change the response here - do this with a 'transform',
+    // located in ../Transforms/. Otherwise, just pass the data back from the api.
+    yield put(GamesActions.gamesWriteSuccess(response))
+  } else {
+    yield put(GamesActions.gamesWriteFailure())
+  }
+}

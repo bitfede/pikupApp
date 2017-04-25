@@ -42,7 +42,10 @@ const create = (baseURL = 'https://pickupapp-e2986.firebaseio.com/') => {
   // way at this level.
   //
   const getGames = () => api.get('Games.json')
-  console.log("REAL SHIT")
+  const postGames = (dataWr) => {
+    console.log("POSTING", dataWr)
+    return api.post('Games.json', dataWr)
+  }
   // ------
   // STEP 3
   // ------
@@ -57,7 +60,8 @@ const create = (baseURL = 'https://pickupapp-e2986.firebaseio.com/') => {
   //
   return {
     // a list of the API functions from step 2
-    getGames
+    getGames,
+    postGames
   }
 }
 

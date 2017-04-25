@@ -7,18 +7,19 @@ import GamesActions from '../Redux/GamesRedux'
 
 import NewGameForm from '../Components/NewGameForm'
 
+import { Actions as NavigationActions } from 'react-native-router-flux'
 // Styles
 import styles from './Styles/NewGameScreenStyle'
 
 class NewGame extends React.Component {
 
   render () {
-    const { wrequestGames } = this.props
+    const { wrequestGames, payload, requestGames } = this.props
     return (
       <View style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
           <Text style={styles.titoletto}>Create a New PickUp Game</Text>
-          <NewGameForm postGame={wrequestGames} />
+          <NewGameForm requestGames={requestGames} postGame={wrequestGames} payload={payload} NavigationActions={NavigationActions} />
         </KeyboardAvoidingView>
       </View>
     )
@@ -28,13 +29,16 @@ class NewGame extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    //payloado
+    payload: state.games.payload
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     //action games
-    wrequestGames: (dataWr) => dispatch(GamesActions.gamesWRequest(dataWr))
+    requestGames: () => dispatch(GamesActions.gamesRequest()),
+    wrequestGames: (dataWr) => dispatch(GamesActions.gamesWriteRequest(dataWr))
   }
 }
 

@@ -22,7 +22,7 @@ import { login } from './LoginSagas'
 import { getUserAvatar } from './GithubSagas'
 import { openScreen } from './OpenScreenSagas'
 //my sagas
-import { getGames } from './GamesSagas'
+import { getGames, postGames } from './GamesSagas'
 
 /* ------------- API ------------- */
 
@@ -44,7 +44,7 @@ export default function * root () {
     takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
 
     //my sagas
-    takeLatest(GamesTypes.GAMES_REQUEST, getGames, gamesApi)
-    takeLatest(GamesTypes.GAMES_WREQUEST, postGames, gamesApi)
+    takeLatest(GamesTypes.GAMES_REQUEST, getGames, gamesApi),
+    takeLatest(GamesTypes.GAMES_WRITE_REQUEST, postGames, gamesApi)
   ]
 }

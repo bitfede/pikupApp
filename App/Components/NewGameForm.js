@@ -10,6 +10,14 @@ export default class NewGameForm extends React.Component {
     this.state = { name: null, createdby: null, location: null, time: null}
   }
 
+  componentDidUpdate() {
+    const { payload, NavigationActions, requestGames } = this.props
+    if (payload !== null && payload.ok == true) {
+      requestGames()
+      NavigationActions.pop()
+    }
+  }
+
   handlePress() {
     const { postGame } = this.props
     const { name, time, location, createdby } = this.state
@@ -20,8 +28,7 @@ export default class NewGameForm extends React.Component {
       createdby: createdby
     }
 
-    console.debug(dataWr)
-    // postGame(dataWr)
+    postGame(dataWr)
   }
 
   render () {
@@ -64,7 +71,10 @@ export default class NewGameForm extends React.Component {
 
 // Prop type warnings
 NewGameForm.propTypes = {
-  postGame: React.PropTypes.funct
+  postGame: React.PropTypes.func,
+  payload: React.PropTypes.object,
+  NavigationActions: React.PropTypes.object,
+  requestGames: React.PropTypes.func
 }
 
 // Defaults for props
