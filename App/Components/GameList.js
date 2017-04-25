@@ -8,23 +8,22 @@ export default class GameList extends React.Component {
   generateList (gamesData) {
 
     const data = gamesData
-
     let counter = 0
-    let list = data.map( (item, counter) => {
+    let list = Object.keys(data).map( (item, counter) => {
       counter = counter + 1
       return (
         <View key={counter} style={styles.listRow}>
           <Text style={styles.gameName}>
-            {item.name}
+            {data[item].name}
           </Text>
           <Text style={styles.location}>
-            {item.location}
+            {data[item].location}
           </Text>
           <Text style={styles.time}>
-            {item.time}
+            {data[item].time}
           </Text>
           <Text style={styles.created}>
-            Created By: <Text style={ {fontWeight: '500'} }>{item.createdby}</Text>
+            Created By: <Text style={ {fontWeight: '500'} }>{data[item].createdby}</Text>
           </Text>
         </View>
       )
@@ -41,7 +40,7 @@ export default class GameList extends React.Component {
     if (gamesFetching == true) {
     console.log("fetchiiiinggg")
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container, {marginTop: 200} }>
         <ActivityIndicator
           animating={true}
           size={'large'}
@@ -62,7 +61,7 @@ export default class GameList extends React.Component {
 // Prop type warnings
 GameList.propTypes = {
   gamesFetching: React.PropTypes.bool,
-  gamesData: React.PropTypes.array
+  gamesData: React.PropTypes.object
 }
 
 // Defaults for props

@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux'
 import Styles from './Styles/NavigationContainerStyles'
 import NavigationDrawer from './NavigationDrawer'
 import CustomNavBar from './CustomNavBar'
+import CustomNavBar2 from './CustomNavBar2'
 
 // screens identified by the router
 import LaunchScreen from '../Containers/LaunchScreen'
@@ -21,7 +22,7 @@ class NavigationRouter extends Component {
         <Scene key='root'>
           <Scene  key='LoginScreen' component={LoginScreen} title='LoginScreen' hideNavBar />
           <Scene initial key='HomeScreen' component={HomeScreen} title='Home' hideNavBar={false} navBar={CustomNavBar} />
-          <Scene  key='NewGame' component={NewGame} title='NewGame' hideNavBar={false} />
+          <Scene  key='NewGame' component={NewGame} title='NewGame' hideNavBar={false} navBar={CustomNavBar2} />
         </Scene>
       </Router>
     )

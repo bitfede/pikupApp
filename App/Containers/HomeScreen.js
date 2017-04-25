@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import GamesActions from '../Redux/GamesRedux'
+import { Actions as NavigationActions } from 'react-native-router-flux'
 
 // Styles
 import styles from './Styles/HomeStyle'
@@ -35,6 +36,7 @@ class Home extends React.Component {
           <View style={{height: 10}}><Text></Text></View>
           <RoundedButton
             text="Create New Game"
+            onPress={() => NavigationActions.NewGame()}
            />
            <RoundedButton
              text="Refresh"

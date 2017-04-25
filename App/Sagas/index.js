@@ -45,5 +45,6 @@ export default function * root () {
 
     //my sagas
     takeLatest(GamesTypes.GAMES_REQUEST, getGames, gamesApi)
+    takeLatest(GamesTypes.GAMES_WREQUEST, postGames, gamesApi)
   ]
 }

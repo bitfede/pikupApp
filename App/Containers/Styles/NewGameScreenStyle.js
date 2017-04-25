@@ -7,6 +7,15 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
     paddingTop: 70,
-    backgroundColor: Colors.background
+    flex: 1,
+    backgroundColor: Colors.background,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
+  titoletto: {
+    color: 'yellow',
+    fontWeight: '800',
+    fontSize: 23
+  }
 })

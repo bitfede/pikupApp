@@ -6,7 +6,10 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   gamesRequest: ['data'],
   gamesSuccess: ['payload'],
-  gamesFailure: null
+  gamesFailure: null,
+  gamesWRequest: ['dataWr'],
+  gamesWSuccess: null,
+  gamesWFailure: null
 })
 
 export const GamesTypes = Types
@@ -40,10 +43,25 @@ export const success = (state, action) => {
 export const failure = state =>
   state.merge({ fetching: false, error: true, payload: null })
 
+export const writerequest = (state, dataWr) => {
+  return state.merge({ fetching: true, error: false })
+}
+
+export const writesuccess = (state) => {
+
+  return state.merge({ fetching: false, error: false })
+}
+
+export const writefailure = (state) => {
+
+  return state.merge({ fetching: false, error: true })
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.GAMES_REQUEST]: request,
   [Types.GAMES_SUCCESS]: success,
-  [Types.GAMES_FAILURE]: failure
+  [Types.GAMES_FAILURE]: failure,
+  [Types.GAMES_WREQUEST]: writerequest
 })
