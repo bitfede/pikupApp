@@ -1,27 +1,21 @@
 import React from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { ScrollView, View, Text, ActivityIndicator } from 'react-native'
 import styles from './Styles/GameListStyle'
 
 export default class GameList extends React.Component {
 
 
-  generateList () {
-    const mockdata = [
-      {
-        gameName: "Andy 2v2", location: "UM Wellness Center: Court 2", time: "11:15AM", created: "Andy"
-      },
-      {
-        gameName: "Casual 4v4", location: "UM Wellness Center: Court 1", time: "10:03AM", created: "Frank"
-      },
-    ]
+  generateList (gamesData) {
+
+    const data = gamesData
 
     let counter = 0
-    let list = mockdata.map( (item, counter) => {
+    let list = data.map( (item, counter) => {
       counter = counter + 1
       return (
         <View key={counter} style={styles.listRow}>
           <Text style={styles.gameName}>
-            {item.gameName}
+            {item.name}
           </Text>
           <Text style={styles.location}>
             {item.location}
@@ -30,7 +24,7 @@ export default class GameList extends React.Component {
             {item.time}
           </Text>
           <Text style={styles.created}>
-            Created By: <Text style={ {fontWeight: '500'} }>{item.created}</Text>
+            Created By: <Text style={ {fontWeight: '500'} }>{item.createdby}</Text>
           </Text>
         </View>
       )
@@ -42,24 +36,36 @@ export default class GameList extends React.Component {
   }
 
 
-
   render () {
+    const { gamesFetching, gamesData } = this.props
+    if (gamesFetching == true) {
+    console.log("fetchiiiinggg")
     return (
       <ScrollView style={styles.container}>
-
-        { this.generateList() }
+        <ActivityIndicator
+          animating={true}
+          size={'large'}
+        />
       </ScrollView>
     )
+    }
+    else {
+      return (
+        <ScrollView style={styles.container}>
+          { this.generateList(gamesData) }
+        </ScrollView>
+      )
+    }
   }
 }
 
-// // Prop type warnings
-// GameList.propTypes = {
-//   someProperty: React.PropTypes.object,
-//   someSetting: React.PropTypes.bool.isRequired
-// }
-//
-// // Defaults for props
-// GameList.defaultProps = {
-//   someSetting: false
-// }
+// Prop type warnings
+GameList.propTypes = {
+  gamesFetching: React.PropTypes.bool,
+  gamesData: React.PropTypes.array
+}
+
+// Defaults for props
+GameList.defaultProps = {
+  gamesFetching: true,
+}

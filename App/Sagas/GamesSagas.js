@@ -16,7 +16,7 @@ import GamesActions from '../Redux/GamesRedux'
 export function * getGames (api, action) {
   const { data } = action
   // make the call to the api
-  const response = yield call(api.getgames, data)
+  const response = yield call(api.getGames)
 
   // success?
   if (response.ok) {

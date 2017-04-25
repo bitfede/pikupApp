@@ -4,6 +4,7 @@ import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 //my imports
 import GamesFixtureAPI from '../Services/GamesFixtureApi'
+import gamesAPI from '../Services/gamesApi'
 
 /* ------------- Types ------------- */
 
@@ -27,9 +28,8 @@ import { getGames } from './GamesSagas'
 
 // The API we use is only used from Sagas, so we create it here and pass along
 // to the sagas which need it.
-// const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
-const api = FixtureAPI 
-const gamesApi = GamesFixtureAPI
+const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
+const gamesApi = gamesAPI.create()
 
 /* ------------- Connect Types To Sagas ------------- */
 
@@ -44,6 +44,6 @@ export default function * root () {
     takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
 
     //my sagas
-    takeLatest(GamesTypes.GAMES_REQUEST, getGames, api)
+    takeLatest(GamesTypes.GAMES_REQUEST, getGames, gamesApi)
   ]
 }

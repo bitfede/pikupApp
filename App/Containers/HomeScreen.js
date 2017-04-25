@@ -20,20 +20,25 @@ class Home extends React.Component {
     requestGames()
   }
 
-  render () {
+  handlePress() {
     const { requestGames } = this.props
+    requestGames()
+  }
+
+  render () {
+    const { gamesFetching, gamesData } = this.props
     return (
       <View style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
           <Text style={styles.titolino}>Games:</Text>
-          <GameList />
+          <GameList gamesFetching={gamesFetching} gamesData={gamesData} />
           <View style={{height: 10}}><Text></Text></View>
           <RoundedButton
             text="Create New Game"
            />
            <RoundedButton
              text="Refresh"
-             onPress={requestGames}
+             onPress={() => this.handlePress()}
             />
         </KeyboardAvoidingView>
       </View>
@@ -43,9 +48,11 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.debug("STATE", state)
   return {
     //state - games
-
+    gamesFetching: state.games.fetching,
+    gamesData: state.games.games
   }
 }
 

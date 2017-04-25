@@ -23,8 +23,7 @@ export default {
       data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
     }
   },
-  getgames: () => {
-    console.debug("helloworld")
+  getGames: () => {
     return {
       ok: true,
       data: dataa
